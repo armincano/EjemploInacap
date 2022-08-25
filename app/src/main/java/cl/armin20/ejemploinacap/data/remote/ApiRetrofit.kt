@@ -6,6 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiRetrofit {
     companion object {
         private const val BASE_URL = "https://board-games-fake-api.herokuapp.com/"
+
         fun retrofitInstance(): BoardApi {
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
