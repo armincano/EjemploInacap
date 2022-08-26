@@ -62,8 +62,8 @@ class FirstFragment : Fragment() {
         }
 
         adapter.selectItem().observe(viewLifecycleOwner) {
-            Log.d("CRISS", "ITEM ${it.name}")
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            boardGamesViewModel.getSelectItem(it)
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, )
         }
     }
 
