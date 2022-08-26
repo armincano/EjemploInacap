@@ -7,7 +7,6 @@ import kotlinx.coroutines.launch
 
 class BoardGamesViewModel(private val repository: BoardGameRepository): ViewModel() {
 
-
     init {
        fetchAllGames()
     }
@@ -19,7 +18,4 @@ class BoardGamesViewModel(private val repository: BoardGameRepository): ViewMode
     private fun fetchAllGames() = viewModelScope.launch {
         repository.fetchAllBoardGames()
     }
-
-
-
 }

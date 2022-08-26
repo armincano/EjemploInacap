@@ -12,6 +12,6 @@ interface BoardApi {
     @GET("board_games/")
     suspend fun getBoardGamesData(): Response<List<BoardGame>>
 
-    @GET("board_games/{id}/")
+    @GET("board_games/details/{id}/")
     suspend fun getBoardGame(@Path("id") id:Int): Response<BoardGame>
 }
