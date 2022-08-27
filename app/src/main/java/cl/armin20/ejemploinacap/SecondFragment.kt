@@ -1,5 +1,7 @@
 package cl.armin20.ejemploinacap
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import cl.armin20.ejemploinacap.databinding.FragmentSecondBinding
 import cl.armin20.ejemploinacap.viewmodel.BoardGamesViewModel
 import cl.armin20.ejemploinacap.viewmodel.BoardViewModelFactory
@@ -47,8 +48,21 @@ class SecondFragment : Fragment() {
 
 
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+           intentExample()
         }
+    }
+
+    private fun intentExample() {
+        val destination = arrayOf("123@123.cl")
+        val subject = "Hola que hace!!"
+        val body = getString(R.string.app_name)
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:") // only email apps should handle this
+            putExtra(Intent.EXTRA_EMAIL, destination)
+            putExtra(Intent.EXTRA_SUBJECT, subject)
+            putExtra(Intent.EXTRA_TEXT, body)
+        }
+        startActivity(intent)
     }
 
     override fun onDestroyView() {
